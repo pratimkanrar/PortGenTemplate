@@ -6,7 +6,7 @@ import styles from './Works.module.css';
 export const Works = ({userdata}) => {
   return (
     <>
-      <Drawer/>
+      <Drawer userdata={userdata}/>
         <div className={styles.Body}>
           <Container className={styles.container}>
               {
@@ -14,21 +14,23 @@ export const Works = ({userdata}) => {
                 (
                   <div>
                     <Header size='large' content='Projects'/>
-                      <Grid centered columns={4}>
+                      <Grid centered columns={5}>
                         <Grid.Row color='grey'>
-                          <Grid.Column textAlign='center'>Institution</Grid.Column>
-                          <Grid.Column textAlign='center'>Start Date</Grid.Column>
-                          <Grid.Column textAlign='center'>End Date</Grid.Column>
+                          <Grid.Column textAlign='center'>Name</Grid.Column>
                           <Grid.Column textAlign='center'>Description</Grid.Column>
+                          <Grid.Column textAlign='center'>Technologies Used</Grid.Column>
+                          <Grid.Column textAlign='center'>Code</Grid.Column>
+                          <Grid.Column textAlign='center'>Link</Grid.Column>
                         </Grid.Row>
                       </Grid>
                       {userdata.metas.works.map((work, index)=>(
-                        <Grid centered celled columns={4}>
+                        <Grid centered celled columns={5}>
                           <Grid.Row>
-                            <Grid.Column textAlign='center'>{work.institution}</Grid.Column>
-                            <Grid.Column textAlign='center'>{work.startdate}</Grid.Column>
-                            <Grid.Column textAlign='center'>{work.enddate}</Grid.Column>
+                            <Grid.Column textAlign='center'>{work.name}</Grid.Column>
                             <Grid.Column textAlign='center'>{work.description}</Grid.Column>
+                            <Grid.Column textAlign='center'>{work.technology}</Grid.Column>
+                            <Grid.Column textAlign='center'><a href={work.code} className={styles.link}>{work.code}</a></Grid.Column>
+                            <Grid.Column textAlign='center'><a href={work.link} className={styles.link}>{work.link}</a></Grid.Column>
                           </Grid.Row>
                         </Grid>
                       ))}
@@ -37,7 +39,7 @@ export const Works = ({userdata}) => {
               }
             </Container>
         </div>
-      <Footer email={{'mail': userdata.email}}/>
+      <Footer userdata={userdata}/>
     </>
   );
 }

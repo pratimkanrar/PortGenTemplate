@@ -6,7 +6,7 @@ import styles from './Achievements.module.css';
 export const Achievements = ({userdata}) => {
   return (
     <>
-      <Drawer/>
+      <Drawer userdata={userdata}/>
         <div className={styles.Body}>
           <Container className={styles.container}>
             {
@@ -16,7 +16,7 @@ export const Achievements = ({userdata}) => {
                   <Header size='large' content='Achievements'/>
                     <Grid centered columns={2}>
                       <Grid.Row color='grey'>
-                        <Grid.Column textAlign='center'>Description</Grid.Column>
+                        <Grid.Column textAlign='center'>Name</Grid.Column>
                         <Grid.Column textAlign='center'>Date</Grid.Column>
                       </Grid.Row>
                     </Grid>
@@ -33,7 +33,7 @@ export const Achievements = ({userdata}) => {
             }
           </Container>
         </div>
-      <Footer email={{'mail': userdata.email}}/>
+      <Footer userdata={userdata}/>
     </>
   );
 }

@@ -6,7 +6,7 @@ import styles from './Qualification.module.css';
 export const Qualification = ({userdata}) => {
   return (
     <>
-      <Drawer/>
+      <Drawer userdata={userdata}/>
         <div className={styles.Body}>
           <Container className={styles.container}>
             {
@@ -41,7 +41,7 @@ export const Qualification = ({userdata}) => {
             }
           </Container>
         </div>
-      <Footer email={{'mail': userdata.email}}/>
+      <Footer userdata={userdata}/>
     </>
   );
 }
